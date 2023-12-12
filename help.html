@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>Help Page</title>
+        <style>
+            body{
+                font-family: Arial;
+                margin: 20px;
+                background-color: grey;
+            }
+              
+            .menu{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+
+            } 
+            ul{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+            }
+            ul li{
+                list-style: none;
+                margin-left: 20px;
+                font-size: 18px;
+            }
+            ul li a{
+                text-decoration: none;
+                color: white;
+            }
+            ul li a:hover {
+                color:blue;
+           } 
+           .description {
+                display: none;
+                margin-top: 10px;
+           }  
+           .description ul {
+                list-style-type: disc; 
+                margin-left: 20px;
+           }
+
+           .info {
+                color: white;
+                text-decoration: none;
+            }
+
+        .info:hover {
+                color: blue;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="menu">
+            <ul>
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="./about.html">ABOUT</a></li>
+                <li><a href="./cities.html">CITIES</a></li>
+                <li><a href="./help.html">HELP</a></li>
+                
+            </ul>
+        </div>
+
+        <h1>Welcome to City Explorer App</h1>
+
+        <h2>Table of Contents</h2>
+
+        <ul>
+            <li id="getting-started" class="info">Getting Started</li>
+            <li id="faq" class="info">FAQ</li>
+        </ul>
+
+        <div id="getting-started-description" class="description">
+            <h2>Getting Started - How to Use</h2>
+            <ul>
+                <li>The home page is where you will find and enter information to your needs and wants.</li>
+                <li>You can explore cities using the search functionality.</li>
+                <li>Click on a city to view detailed information and charts.</li>
+                <li>Compare cities using the comparison feature.</li>
+            </ul>
+        </div>
+
+        <div id="faq-description" class="description">
+            <h2>FAQ - Frequently Asked Questions</h2>
+            <p>Here are some common questions and answers:</p>
+            <ul>
+                <li><strong>Q:</strong> Why is it not generating cities?</li>
+                <p><strong>A:</strong> Make sure you have spelled the cities correctly and filled out all required fields.</p>
+        
+                <li><strong>Q:</strong> Can I use the app without creating an account?</li>
+                <p><strong>A:</strong> Yes, our application does not required you to make an account. You can access all functionalities without one.</p>
+        
+            </ul>
+        </div>
+
+
+        <script>
+            document.getElementById('getting-started').addEventListener('click', function () {
+                var description = document.getElementById('getting-started-description');
+                description.style.display = 'block';
+        
+                document.getElementById('faq-description').style.display = 'none';
+            });
+        
+            document.getElementById('faq').addEventListener('click', function () {
+                var description = document.getElementById('faq-description');
+                description.style.display = 'block';
+        
+                document.getElementById('getting-started-description').style.display = 'none';
+            });
+        </script>
+                             
+    </body>
+</html>
