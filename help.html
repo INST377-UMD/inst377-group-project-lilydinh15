@@ -48,9 +48,15 @@
                 text-decoration: none;
             }
 
-        .info:hover {
+            .info:hover {
                 color: blue;
             }
+            #map {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto; 
+            display: block;
+        }
             
         </style>
     </head>
@@ -97,7 +103,8 @@
             </ul>
         </div>
 
-
+         <!-- Map Image -->
+         <img id="map" src="map.jpeg" alt="Map Image">
         <script>
             document.getElementById('getting-started').addEventListener('click', function () {
                 var description = document.getElementById('getting-started-description');
