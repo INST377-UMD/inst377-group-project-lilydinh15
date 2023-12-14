@@ -1,11 +1,14 @@
 <html>
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
         <title>Help Page</title>
         <style>
             body{
                 font-family: Arial;
                 margin: 20px;
-                background-color: grey;
+                background-color: black;
             }
               
             .menu{
@@ -57,10 +60,40 @@
             margin: 20px auto; 
             display: block;
         }
+        .help-banner{
+            border-radius: 30px;
+            background-color: #FF9900;
+            height: 30%;
+        }
+        #help-content{
+            background-color: white;
+            border: 3px solid #FF9900;
+            border-radius: 30px;
+        }
+        .card-img-top{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            display:inline-block;
+            vertical-align:middle;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        .card-img-top img{
+            width:100%;
+        }
+        .user-testimony{
+            background-color: #F5F5F5;
+            min-height: 660px;
+        }
             
         </style>
     </head>
     <body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
         <div class="menu">
             <ul>
                 <li><a href="./index.html">HOME</a></li>
@@ -71,55 +104,163 @@
             </ul>
         </div>
 
-        <h1>Welcome to the Help Page</h1>
-
-        <h2>Table of Contents</h2>
-
-        <ul>
-            <li id="getting-started" class="info">Getting Started</li>
-            <li id="faq" class="info">FAQ</li>
-        </ul>
-
-        <div id="getting-started-description" class="description">
-            <h2>Getting Started - How to Use</h2>
-            <ul>
-                <li>The home page is where you will find and enter information to your needs and wants.</li>
-                <li>You can explore cities using the search functionality.</li>
-                <li>Click on a city to view detailed information and charts.</li>
-                <li>Compare cities using the comparison feature.</li>
-            </ul>
+        <div class="jumbotron text-light help-banner">
+            <h1 class="p-3">How can we help?</h1>
+            <p class="lead p-3 text-dark fw-bold">Our dedicated support team is here for your convenience. Please let us know how to best assist you.</p>
         </div>
-
-        <div id="faq-description" class="description">
-            <h2>FAQ - Frequently Asked Questions</h2>
-            <p>Here are some common questions and answers:</p>
-            <ul>
-                <li><strong>Q:</strong> Why is it not generating cities?</li>
-                <p><strong>A:</strong> Make sure you have spelled the cities correctly and filled out all required fields.</p>
-        
-                <li><strong>Q:</strong> Can I use the app without creating an account?</li>
-                <p><strong>A:</strong> Yes, our application does not required you to make an account. You can access all functionalities without one.</p>
-        
-            </ul>
+        <div class="container  px-5 pt-5">
+            <div class="row gx-5">
+                <div class="col">
+                    <div class="p-3 bg-light" id="help-content">
+                        <h3 class="fw-bold text-center mb-3">Getting Started</h3>
+                        <ol>
+                            <li>
+                                The home page is where you will find and enter information to your needs and wants.
+                            </li>
+                            <li>
+                                You can explore cities using the search functionality.
+                            </li>
+                            <li>
+                                Click on a city to view detailed information and charts.
+                            </li>
+                            <li>
+                                Compare cities using the comparison feature.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3 bg-light" id="help-content">
+                        <h3 class="fw-bold text-center">FAQ</h3>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    How does City Explorer make it easy for users to obtain relevant information about their destination?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    We incorporate Teleport’s public APIs to make the data easily accessible to our end users.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    What sets City Explorer apart in terms of delivering relevant and up-to-date information about a
+                                    destination?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body overflow-scroll">
+                                    We want you to have the most comprehensive understanding of all the destinations that are currently
+                                    listed. We compile
+                                    and rigorously review all of the destinations details to ensure our data is precise.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    We use City Explorer?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Because it is fun!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
-
-         <!-- Map Image -->
-         <img id="map" src="map.jpeg" alt="Map Image">
-        <script>
-            document.getElementById('getting-started').addEventListener('click', function () {
-                var description = document.getElementById('getting-started-description');
-                description.style.display = 'block';
-        
-                document.getElementById('faq-description').style.display = 'none';
-            });
-        
-            document.getElementById('faq').addEventListener('click', function () {
-                var description = document.getElementById('faq-description');
-                description.style.display = 'block';
-        
-                document.getElementById('getting-started-description').style.display = 'none';
-            });
-        </script>
-                             
+        <div class="container-fluid mt-5 p-3 user-testimony">
+            <div class="text-center mb-5 mt-5">
+                <h3>Here's what users have said</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Anthony</h5>
+                            <p class="card-text">I recently had the pleasure of using City Explorer for my trip, and I must say, it
+                                completely transformed my travel
+                                experience. The promise of letting me focus on the things that truly matter while they handle all
+                                the details is not
+                                just a tagline – it's the reality they deliver.</p>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                VERIFIED
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=3135&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <div class="card-body">
+                                <h5 class="card-title">Malik</h5>
+                                <p class="card-text">From the moment I downloaded the app, I felt a sense of relief. City Explorer makes obtaining relevant information a
+                                breeze. The interface is user-friendly, and navigating through various options is seamless. It's like having a personal
+                                travel assistant in the palm of your hand.</p>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    VERIFIED
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://images.unsplash.com/photo-1702221422565-60f734cd90b1?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <div class="card-body">
+                                <h5 class="card-title">Teresa</h5>
+                                <p class="card-text">The app's ability to curate the most pertinent details about my destination was impressive. I was able to access not
+                                only the must-see attractions but also hidden gems that I might have otherwise missed..</p>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    VERIFIED
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=3135&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <div class="card-body">
+                                <h5 class="card-title">June</h5>
+                                <p class="card-text">What I appreciated the most was the stress-free planning experience. With City Explorer taking care of the logistics, I
+                                could immerse myself in the joy of exploring without constantly worrying about the details</p>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    VERIFIED
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
