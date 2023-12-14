@@ -13,9 +13,11 @@ Link to User Manual:
 
 Link to Developer Manual:
 
-Developer Manual: Before you begin, make sure the following has been installed: -Node.js, -npm, -Git
+Developer Manual: Welcome to our City Explorer App. Before you begin, make sure the following dependencies has been installed: -npm, -Git,insomnia or postman.  
 
 How to run the application on a server:
+-Start web application: npm start
+-Stop the web application: CTRL + C in your terminal 
 
 How to run any tests written for the software:
 
