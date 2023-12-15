@@ -9,11 +9,11 @@ Description: Our web application will help people find cities that fit their liv
 
 Description of target browsers: Our web application is intended for iOS and Andriod users. Google chrome is available for users using iOS and Andriod. There the users will be able to interact with our web application.
 
-Link to User Manual:
+ User Manual:
 
-Link to Developer Manual:
 
-Developer Manual: Welcome to our City Explorer App. Before you begin, make sure the following dependencies has been installed: -npm, -Git,insomnia or postman.  
+Developer Manual: Welcome to our City Explorer App. Before you begin, make sure the following dependencies has been installed: -npm,insomnia or postman.(do this after you clone the repo)
+
 
 How to run the application on a server:
 -Start web application: npm start
@@ -21,6 +21,18 @@ How to run the application on a server:
 
 How to run any tests written for the software:
 
-The API for our server application - all GET, POST, PATCH, etc endpoints, and what they each do
+The API for our server application is Teleport API key.
+Website: https://developers.teleport.org/api/
+
+Follow instruction on the Teleport website to obtain key and authentication. There is a no rate limit issue.
+
+GET- Retrieves the infromation about the city.
+
+POST- Endpoints, they are used to create new resources. In our application this is used by submitting data to obtain the new generated city
+
+PATCH- Used to update information about a city 
+
+DELETE- To delete resources such as removing a city from the database.
+
 
 Expectations around know bugs and a road-map for future development
