@@ -1,23 +1,23 @@
 
 const ctx = document.getElementById('myChart');
 
+// Loads City data based on user input
 async function loadData() {
 
   var summary1 = document.getElementById('citysum1');
   var summary2 = document.getElementById('citysum2');
   summary1.innerHTML = ""
   summary2.innerHTML = ""
-
   var score1 = [];
   var score2 = [];
-
   var city1 = [];
   var city2 = [];
   const cityname1 = document.getElementById('city1').value;
   const cityname2 = document.getElementById('city2').value;
   const cityscore1 = document.getElementById('cityscore1');
   const cityscore2 = document.getElementById('cityscore2');
-
+  const city_img1 = document.getElementById('city_img1');
+  const city_img2 = document.getElementById('city_img2');
   var error = document.getElementById('error');
 
   let chartStatus = Chart.getChart("myChart"); 
@@ -33,6 +33,11 @@ async function loadData() {
     error.innerHTML = ""
   }
 
+  var images = document.querySelectorAll('.cityimage');
+  images.forEach(function(element) {
+    element.remove();
+  });
+
   var city = cityname1.toLowerCase().replace(/[\s,]+/g, '-');
   var input = cityname1;
   var scores = city1;
@@ -40,9 +45,13 @@ async function loadData() {
   var summary = summary1;
   var cityscore = cityscore1;
   var labels = [];
+  var image = city_img1;
 
-  for(let i = 1; i<=2; i++) {
+  for(let i = 1; i <= 2; i++) {
     try {
+      var source = await getImage(city);
+      var photo = createImg(source);
+
       var data = await fetch(`https://api.teleport.org/api/urban_areas/slug:${city}/scores/`)
         .then((res) => res.json());
 
@@ -50,7 +59,11 @@ async function loadData() {
         summary.innerHTML = data.summary;
         summary.style.color = "white";
         overall.push(Math.floor(data.teleport_city_score));
-        cityscore.innerHTML = `${input.charAt(0).toUpperCase() + input.slice(1)} score: ${overall.toString()}`
+        cityscore.innerHTML = `${input.charAt(0).toUpperCase() + input.slice(1)} score: ${overall.toString()}`;
+
+
+
+        image.appendChild(photo);
         
         if(overall <= 50) {
           cityscore.style.color = "red";
@@ -65,11 +78,12 @@ async function loadData() {
         })
     
         city = cityname2.toLowerCase().replace(/[\s,]+/g, '-');
-        input = cityname2
+        input = cityname2;
         scores = city2;
         overall = score2;
         summary = summary2;
         cityscore = cityscore2;
+        image = city_img2;
 
     } catch (error) {
       summary.innerHTML = "City not in database, spelled incorrectly, missing state , or input is missing.";
@@ -83,6 +97,7 @@ async function loadData() {
         overall = score2;
         summary = summary2;
         cityscore = cityscore2;
+        image = city_img2;
         
       } else {
         return;
@@ -116,6 +131,7 @@ async function loadData() {
   }
 }
 
+// Gets the table of previous comparisons
 async function getComparisons() {
   var test = await fetch('http://localhost:4000/comparisons', {
       method: 'GET',
@@ -125,8 +141,7 @@ async function getComparisons() {
   })
   .then((res) => {
     console.log(res)
-    
-    console.log(res);
+
     const element = document.getElementById("comparisonTable");
     if (element) {
       element.remove();
@@ -159,8 +174,7 @@ async function getComparisons() {
     tableRow.appendChild(tableHeading3)
 
     table.appendChild(tableRow)
-      // var cutoff = document.getElementById('cutoff');
-      // cutoff.insertAdjacentElement("beforebegin", table)
+  
     document.body.appendChild(table)
     for (i = 0; i < res.length; i++) {
       var comparisonRow = document.createElement('tr');
@@ -184,6 +198,7 @@ async function getComparisons() {
   })
 }
 
+// Adds user comparison into supabase table
 async function addComparison(name1, score1, name2, score2) {
   var test = await fetch(`http://localhost:4000/cities`, {
     method: 'POST',
@@ -197,4 +212,26 @@ async function addComparison(name1, score1, name2, score2) {
       "Content-type": "application/json"
     }
   })
+}
+
+// Returns an image based on the city name
+async function getImage(city) {
+  var imageData = await fetch(`https://api.teleport.org/api/urban_areas/slug:${city}/images/`)
+  var photoInfo = await imageData.json();
+
+  var webImage = photoInfo.photos[0].image;
+  var source = webImage.web;
+
+  return source;
+}
+
+// Creates an image element with the source
+function createImg(source){
+  var image = document.createElement("img");
+
+  image.src = source;
+  image.className = "cityimage img-fluid";
+  image.style.height = "110px";
+
+  return image;
 }
