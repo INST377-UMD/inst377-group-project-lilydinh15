@@ -8,13 +8,16 @@ async function loadData() {
   summary1.innerHTML = ""
   summary2.innerHTML = ""
 
-  var city_score1 = [];
-  var city_score2 = [];
+  var score1 = [];
+  var score2 = [];
 
   var city1 = [];
   var city2 = [];
   const cityname1 = document.getElementById('city1').value;
   const cityname2 = document.getElementById('city2').value;
+  const cityscore1 = document.getElementById('cityscore1');
+  const cityscore2 = document.getElementById('cityscore2');
+
   var error = document.getElementById('error');
 
   let chartStatus = Chart.getChart("myChart"); 
@@ -27,13 +30,15 @@ async function loadData() {
     error.style.color = 'orange';
     return;
   } else {
-    error.innerHTML = " "
+    error.innerHTML = ""
   }
 
   var city = cityname1.toLowerCase().replace(/[\s,]+/g, '-');
+  var input = cityname1;
   var scores = city1;
-  var overall = city_score1;
+  var overall = score1;
   var summary = summary1;
+  var cityscore = cityscore1;
   var labels = [];
 
   for(let i = 1; i<=2; i++) {
@@ -45,34 +50,49 @@ async function loadData() {
         summary.innerHTML = data.summary;
         summary.style.color = "white";
         overall.push(Math.floor(data.teleport_city_score));
+        cityscore.innerHTML = `${input.charAt(0).toUpperCase() + input.slice(1)} score: ${overall.toString()}`
         
+        if(overall <= 50) {
+          cityscore.style.color = "red";
+        } else if (overall > 50 && overall < 65){
+          cityscore.style.color = "yellow";
+        } else {
+          cityscore.style.color = "green";
+        }
         categories.forEach(element => {
           labels.push(element.name);
           scores.push(element.score_out_of_10);
         })
     
         city = cityname2.toLowerCase().replace(/[\s,]+/g, '-');
+        input = cityname2
         scores = city2;
-        overall = city_score2;
+        overall = score2;
         summary = summary2;
+        cityscore = cityscore2;
 
     } catch (error) {
       summary.innerHTML = "City not in database, spelled incorrectly, missing state , or input is missing.";
       summary.style.color = "red";
+      cityscore.innerHTML = "";
 
       if(i == 1){
         city = cityname2.toLowerCase().replace(/[\s,]+/g, '-');
         scores = city2;
-        overall = city_score2;
+        input = cityname2;
+        overall = score2;
         summary = summary2;
+        cityscore = cityscore2;
+        
       } else {
         return;
       }
     }
   }
   
-  addComparison(cityname1, city_score1[0].toString(), cityname2, city_score2[0].toString());
+  addComparison(cityname1, score1[0].toString(), cityname2, score2[0].toString());
   getComparisons();
+
   const ctx = document.getElementById('myChart');
   
   if(summary1.innerHTML != "City not in database, spelled incorrectly, missing state , or input is missing.") {
