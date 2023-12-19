@@ -27,8 +27,8 @@ Description of target browsers: Our web application is intended for iOS and Andr
 
  Getting Started:
  -Accessing the app
-    -Open your web browser (chrome)
-    -Navigate to URL
+ -Open your web browser (chrome)
+ -Navigate to URL
 
 User Interface:
 
@@ -37,7 +37,7 @@ All the pages have a dashbord where you can access different pages.
 Interactive charts is used to compare cities.
 
 Functionality:
--Search cities by filling out the requirements
+-Search cities by selecting the city you want to compare on our drop down menu. (Cities Page)
 
 -View life quality 
 
@@ -47,8 +47,6 @@ Functionality:
 
 Troubleshooting:
 -There is a help page with frequently asked questions 
-
--If it is not loading the cities make sure you have filled out all requirements boxes.
 
 -Try refreshing the page.
 
@@ -88,5 +86,7 @@ PATCH- Used to update information about a city
 DELETE- To delete resources such as removing a city from the database.
 
 Expectations around know bugs and a road-map for future development
+
+It might take a while to load if it crashes you can refresh the page.
 
 In the future we would like to expand and make our website be able to run all over the world. We also would like to include social media on our app to share highlights and reach a wider audience.
