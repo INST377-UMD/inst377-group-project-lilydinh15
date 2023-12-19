@@ -1,3 +1,31 @@
+//Populates selects with the city names
+function populateCities() {
+  fetch(`https://api.sheety.co/9d44a8f14e0fe330df906156bc9878b6/cities/cities`)
+  .then((response) => response.json())
+  .then(data => {
+
+    var list = data.cities;
+    var options = [];
+    var values = document.getElementById('cityvalues1');
+    var values2 = document.getElementById('cityvalues2');
+
+
+    list.forEach(city => {
+      var text = city.name;
+      var value = city.code;
+      var option = document.createElement('option');
+      option.value = value;
+      option.text = text;
+      values.add(option);
+
+      var option2 = option.cloneNode(true)
+      values2.add(option2);
+    })
+    
+  })
+}
+
+window.onload = populateCities;
 
 const ctx = document.getElementById('myChart');
 
@@ -12,8 +40,19 @@ async function loadData() {
   var score2 = [];
   var city1 = [];
   var city2 = [];
-  const cityname1 = document.getElementById('city1').value;
-  const cityname2 = document.getElementById('city2').value;
+  const citycode1 = document.getElementById('cityvalues1').value;
+  const citycode2 = document.getElementById('cityvalues2').value;
+
+  const selectname1 = document.getElementById('cityvalues1');
+  var selectedCity1 = selectname1.options[selectname1.selectedIndex];
+  var cityname1 = selectedCity1.text
+  console.log(cityname1)
+  
+  const selectname2 = document.getElementById('cityvalues2');
+  var selectedCity2 = selectname2.options[selectname2.selectedIndex];
+  var cityname2 = selectedCity2.text
+  console.log(cityname2)
+
   const cityscore1 = document.getElementById('cityscore1');
   const cityscore2 = document.getElementById('cityscore2');
   const city_img1 = document.getElementById('city_img1');
@@ -25,7 +64,7 @@ async function loadData() {
     chartStatus.destroy();
   }
 
-  if(cityname1 === cityname2) {
+  if(citycode1 === citycode2) {
     error.innerHTML = "Cannot Compare the same city."
     error.style.color = 'orange';
     return;
@@ -38,8 +77,8 @@ async function loadData() {
     element.remove();
   });
 
-  var city = cityname1.toLowerCase().replace(/[\s,]+/g, '-');
-  var input = cityname1;
+  var city = citycode1;
+  var cityname = cityname1;
   var scores = city1;
   var overall = score1;
   var summary = summary1;
@@ -59,7 +98,7 @@ async function loadData() {
         summary.innerHTML = data.summary;
         summary.style.color = "white";
         overall.push(Math.floor(data.teleport_city_score));
-        cityscore.innerHTML = `${input.charAt(0).toUpperCase() + input.slice(1)} score: ${overall.toString()}`;
+        cityscore.innerHTML = `${cityname} score: ${overall.toString()}`;
 
 
 
@@ -77,8 +116,8 @@ async function loadData() {
           scores.push(element.score_out_of_10);
         })
     
-        city = cityname2.toLowerCase().replace(/[\s,]+/g, '-');
-        input = cityname2;
+        city = citycode2;
+        cityname = cityname2;
         scores = city2;
         overall = score2;
         summary = summary2;
@@ -91,9 +130,9 @@ async function loadData() {
       cityscore.innerHTML = "";
 
       if(i == 1){
-        city = cityname2.toLowerCase().replace(/[\s,]+/g, '-');
+        city = citycode2;
+        cityname = cityname2;
         scores = city2;
-        input = cityname2;
         overall = score2;
         summary = summary2;
         cityscore = cityscore2;
