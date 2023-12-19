@@ -12,6 +12,7 @@ Description of target browsers: Our web application is intended for iOS and Andr
  User Manual: Welcome to our City Explorer App. This section provides an overview of our application and key functionalities.
 
  Features:
+
  -Find cities based on user preferences
 
  -Compare cities using interactive charts
@@ -26,8 +27,11 @@ Description of target browsers: Our web application is intended for iOS and Andr
  To use the City Explorer Web Application,ensure that you have a modern web browser (e.g., Chrome, Firefox, Safari). Perferrably Chrome.
 
  Getting Started:
+
  -Accessing the app
+
  -Open your web browser (chrome)
+
  -Navigate to URL
 
 User Interface:
@@ -37,6 +41,7 @@ All the pages have a dashbord where you can access different pages.
 Interactive charts is used to compare cities.
 
 Functionality:
+
 -Search cities by selecting the city you want to compare on our drop down menu. (Cities Page)
 
 -View life quality 
@@ -46,6 +51,7 @@ Functionality:
 -Compare cities
 
 Troubleshooting:
+
 -There is a help page with frequently asked questions 
 
 -Try refreshing the page.
@@ -85,7 +91,7 @@ PATCH- Used to update information about a city
 
 DELETE- To delete resources such as removing a city from the database.
 
-Expectations around know bugs and a road-map for future development
+Expectations around know bugs and a road-map for future development:
 
 It might take a while to load if it crashes you can refresh the page.
 
