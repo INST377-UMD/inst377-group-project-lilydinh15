@@ -46,12 +46,10 @@ async function loadData() {
   const selectname1 = document.getElementById('cityvalues1');
   var selectedCity1 = selectname1.options[selectname1.selectedIndex];
   var cityname1 = selectedCity1.text
-  console.log(cityname1)
-  
+
   const selectname2 = document.getElementById('cityvalues2');
   var selectedCity2 = selectname2.options[selectname2.selectedIndex];
   var cityname2 = selectedCity2.text
-  console.log(cityname2)
 
   const cityscore1 = document.getElementById('cityscore1');
   const cityscore2 = document.getElementById('cityscore2');
@@ -178,6 +176,13 @@ async function getComparisons() {
         "Content-type": "application/json"
       }
   })
+  .then(async (res) => {
+    console.log('Status:', res.status)
+    if(res.status != 200 && res.status != 304) {
+      throw new Error(JSON.stringify(await res.json()));
+    } 
+    return res.json()
+  })
   .then((res) => {
     console.log(res)
 
@@ -210,7 +215,7 @@ async function getComparisons() {
 
     var tableHeading4 = document.createElement('th');
     tableHeading4.innerHTML = "City 2 Score"
-    tableRow.appendChild(tableHeading3)
+    tableRow.appendChild(tableHeading4)
 
     table.appendChild(tableRow)
   
@@ -223,7 +228,7 @@ async function getComparisons() {
       var cityScore2 = document.createElement('td');
 
       comparisonCity1.innerHTML = res[i].cityname1;
-      cityScore1.innerHTML = res[i].cityscore2;
+      cityScore1.innerHTML = res[i].cityscore1;
       comparisonCity2.innerHTML = res[i].cityname2;
       cityScore2.innerHTML = res[i].cityscore2;
 

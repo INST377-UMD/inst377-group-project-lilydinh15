@@ -55,6 +55,12 @@
             #navbar-item:hover{
                 background-color: #FF9900;
             }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+                color: #ddd;
+              }
 
         </style>
     </head>
@@ -83,9 +89,9 @@
                     <div class="mt-3 border p-3" style="width: 20rem;">
                         <img src="https://d13k13wj6adfdf.cloudfront.net/urban_areas/new-york_web-99d9bb0809.jpg" class="city-img img-fluid" alt="City Image">
                         <div>
-                            <h5 class="city-name">New York</h5>
+                            <h5 class="city-name" style="color:#ddd">New York</h5>
                             <div class="container mt-3">
-                                <button class="btn btn-info" style="background-color: orange;" type="button" data-bs-toggle="collapse" data-bs-target="#teleportWidget" aria-expanded="false" aria-controls="teleportWidget">
+                                <button class="btn btn-info" style="background-color: orange; border-color:#ddd" type="button" data-bs-toggle="collapse" data-bs-target="#teleportWidget" aria-expanded="false" aria-controls="teleportWidget">
                                   Click for Life Quality Info
                                 </button>
                                 <div class="collapse mt-3" id="teleportWidget">
@@ -100,9 +106,9 @@
                     <div class="mt-3 border p-3" style="width: 20rem;">
                         <img src="https://d13k13wj6adfdf.cloudfront.net/urban_areas/tokyo_web-7a20b5733f.jpg" class="city-img img-fluid" alt="City Image">
                         <div>
-                            <h5 class="city-name">Tokyo</h5>
+                            <h5 class="city-name" style="color:#ddd">Tokyo</h5>
                             <div class="container mt-3">
-                                <button class="btn btn-info" style="background-color: orange" type="button" data-bs-toggle="collapse" data-bs-target="#teleportWidget" aria-expanded="false" aria-controls="teleportWidget">
+                                <button class="btn btn-info" style="background-color: orange; border-color:#ddd" type="button" data-bs-toggle="collapse" data-bs-target="#teleportWidget" aria-expanded="false" aria-controls="teleportWidget">
                                   Click for Life Quality Info
                                 </button>
                                 <div class="collapse mt-3" id="teleportWidget">
@@ -117,9 +123,9 @@
                     <div class="mt-3 border p-3" style="width: 20rem;">
                         <img src="https://d13k13wj6adfdf.cloudfront.net/urban_areas/boston_web-550bb970ba.jpg" class="city-img img-fluid" alt="City Image">
                         <div>
-                            <h5 class="city-name">Boston</h5>
+                            <h5 class="city-name" style="color:#ddd">Boston</h5>
                             <div class="container mt-3">
-                                <button class="btn btn-info" style="background-color: orange" type="button" data-bs-toggle="collapse" data-bs-target="#teleportWidget" aria-expanded="false" aria-controls="teleportWidget">
+                                <button class="btn btn-info" style="background-color: orange; border-color:#ddd" type="button" data-bs-toggle="collapse" data-bs-target="#teleportWidget" aria-expanded="false" aria-controls="teleportWidget">
                                   Click for Life Quality Info
                                 </button>
                                 <div class="collapse mt-3" id="teleportWidget">
@@ -134,9 +140,9 @@
                     <div class="mt-3 border p-3" style="width: 20rem;">
                         <img src="https://d13k13wj6adfdf.cloudfront.net/urban_areas/munich_web-2b4628b75d.jpg" class="city-img img-fluid" alt="City Image">
                         <div>
-                            <h5 class="city-name">Munich</h5>
+                            <h5 class="city-name" style="color:#ddd">Munich</h5>
                             <div class="container mt-3">
-                                <button class="btn btn-info" style="background-color: orange" type="button" data-bs-toggle="collapse" data-bs-target="#teleportWidget" aria-expanded="false" aria-controls="teleportWidget">
+                                <button class="btn btn-info" style="background-color: orange; border-color:#ddd" type="button" data-bs-toggle="collapse" data-bs-target="#teleportWidget" aria-expanded="false" aria-controls="teleportWidget">
                                   Click for Life Quality Info
                                 </button>
                                 <div class="collapse mt-3" id="teleportWidget">
@@ -176,7 +182,9 @@
                         <button class="btn btn-light m-3 rounded-pill" style="background-color: orange;" onclick="loadData()">Compare</button>
                     </div>
                 </div>
-                <canvas id="myChart" width="400" height="200"></canvas>
+                <div class=" container mt-5">
+                    <canvas id="myChart" width="400" height="200"></canvas>
+                </div>
             </div>
         </div>
     </body>
