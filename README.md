@@ -60,7 +60,7 @@ Troubleshooting:
 
 
 
-Developer Manual: Welcome to our City Explorer App. Before you begin, make sure the following dependencies has been installed: -npm,insomnia or postman.(do this after you clone the repo)
+Developer Manual: Welcome to our City Explorer App. Before you begin, make sure the following dependencies has been installed: -npm, supabase,insomnia or postman.(do this after you clone the repo)
 
 JSONView plugin is also reccomend.
 
